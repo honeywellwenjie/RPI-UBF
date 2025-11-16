@@ -1,17 +1,16 @@
-
 SUBDIRS = \
-	cross-compiler 	\
-	src		
+	cross-compiler \
+	src-code \
+	debian-packages
 
 SUBDIRS_C = \
-	src		\
+	debian-packages \
+	src-code \
 	cross-compiler
 
-.PHONY: subdirs $(SUBDIRS)
+.PHONY: all clean fullclean $(SUBDIRS)
 
-all:  subdirs
-
-subdirs: $(SUBDIRS)
+all: $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
