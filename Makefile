@@ -1,9 +1,11 @@
 SUBDIRS = \
 	cross-compiler \
 	src-code \
-	debian-packages
+	debian-packages \
+	os-image
 
 SUBDIRS_C = \
+	os-image	\
 	debian-packages \
 	src-code \
 	cross-compiler
