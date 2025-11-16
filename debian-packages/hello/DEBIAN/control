@@ -1,0 +1,8 @@
+Package: rpi-helloworld
+Version: 0.0.1
+Section: utils
+Architecture: arm64
+Installed-Size: 18651405
+Maintainer: <linuxwenjie@gmail.com>
+Description: docker cross compiler hello validation test
+
