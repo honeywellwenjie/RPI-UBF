@@ -1,14 +1,14 @@
 SUBDIRS = \
 	test
 
+SUBDIRS_C = \
+	test
+
 .PHONY: all clean $(SUBDIRS)
 
 all: $(SUBDIRS)
 
 $(SUBDIRS):
-	$(MAKE) -C $@
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-clean: $(SUBDIRS:%=%-clean)
-
-%-clean:
-	$(MAKE) -C $(patsubst %-clean,%,$@) clean
+clean fullclean: $(SUBDIRS_C)
