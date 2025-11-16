@@ -21,5 +21,8 @@ install:
 clean:
 	rm -rf $(PROJECT_ROOT)/$(TARGET)
 
+fullclean:
+	make clean
+
 rebuild: clean build
 
