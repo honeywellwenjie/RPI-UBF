@@ -1,4 +1,4 @@
-# RPI‑UBF (Universal Build Framework for Raspberry Pi)
+# RPI‑UBF (UniversalBuild Framework of Raspberry Pi)
 
 RPI‑UBF is a **complete, modular, automated build framework** for creating customized Raspberry Pi OS images, cross‑compiling ARM binaries, packaging them as Debian packages, and finally assembling everything into a bootable `.img` file.
 
@@ -6,16 +6,16 @@ Its goal is simple:
 
 ➡ **You focus on your product logic.**
 
-No more manual image hacking
-No more fighting with cross‑compiler setups
-No more “copy this folder into rootfs and pray” workflows
+1 No more manual image hacking
+2 No more fighting with cross‑compiler setups
+3 No more “copy this folder into rootfs and pray” workflows
 
 Instead:
 
-✔ Build ARM binaries on ANY x86 Linux PC
-✔ Package them into clean `.deb` files
-✔ Auto‑inject them into a Raspberry Pi OS image
-✔ Produce repeatable, version‑controlled firmware images
+1 Build ARM binaries on ANY x86 Linux PC
+2 Package them into clean `.deb` files
+3 Auto‑inject them into a Raspberry Pi OS image
+4 Produce repeatable, version‑controlled firmware images
 
 ---
 
@@ -43,7 +43,7 @@ RPI-UBF
 
 ## 🔹 Core Components
 
-### **1️⃣ Cross Compiler (Docker‑based)**
+### **Cross Compiler (Docker‑based)**
 - Runs on **x86 Ubuntu / Debian / WSL2 / GitHub CI**
 - Produces **ARMv7 binaries** even if you don’t own a Pi
 - No toolchain installation required
@@ -60,7 +60,7 @@ docker run --platform=linux/arm/v7 -v $(pwd):/work rpibuild gcc hello.c -o hello
 
 ---
 
-### **2️⃣ Debian Package Builder**
+### **Debian Package Builder**
 
 Everything you install into the image is packaged as a proper `.deb`.
 
@@ -76,7 +76,7 @@ debian-packages/output_deb/hello.deb
 
 ---
 
-### **3️⃣ OS Image Pipeline**
+### **OS Image Pipeline**
 
 Scripts under `os-image/image-script/` let you:
 
