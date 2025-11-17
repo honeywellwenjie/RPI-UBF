@@ -117,26 +117,6 @@ ls /root/WORKED
 
 ---
 
-## 🔹 Why This Project Is Useful
-
-### **✔ Fully Reproducible Firmware Builds**
-No “mystery SD card” situation — all firmware is built **from source + scripts only**.
-
-### **✔ No Host Contamination**
-All compilation happens inside Docker, all OS modifications inside a mounted loop image.
-
-### **✔ Clean Life‑Cycle**
-- Source → `.deb`
-- `.deb` → filesystem
-- filesystem → `.img`
-
-Everything is **traceable and diff‑able**.
-
-### **✔ Works On CI / Cloud**
-Can be integrated into GitHub Actions → auto‑produce nightly OS images.
-
----
-
 ## 🔹 Ideal Use Cases
 
 Building IoT appliances
