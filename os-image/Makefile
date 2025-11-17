@@ -1,11 +1,11 @@
 .PHONY: all clean fullclean
 
 CACHE_DIR = cache
-OS_HANDLE_SCRIPT = image-pipeline
+IMG_SCRIPT = image-script
 
 all:
-	$(OS_HANDLE_SCRIPT)/download_images.sh
-	$(OS_HANDLE_SCRIPT)/prepare_image.sh
+	$(OS_SCRIPT)/download_images.sh
+	$(OS_SCRIPT)/prepare_image.sh
 
 clean:
 	echo "os-image clean"
