@@ -22,6 +22,7 @@ OUTPUT_IMG = rpi-build.img
 	touch $@
 
 .build.sentinel: .rootfs.sentinel
+	sudo $(IMG_SCRIPT)/chroot_exec.sh "touch /test_wenjie_ok"
 	touch $@
 
 .pack.sentinel: .build.sentinel
