@@ -131,16 +131,17 @@ Anyone tired of manual `chroot` image hacking
 
 ## 🔹 Build Everything (One Command)
 
+**Build:**
 ```
 make
 ```
 
-Produces:
+**Produces:**
 ```
 output/rpi-build.img
 ```
 
-Flash it:
+**Flash it:**
 ```
 sudo dd if=rpi-build.img of=/dev/sdX bs=512 status=progress
 sync
