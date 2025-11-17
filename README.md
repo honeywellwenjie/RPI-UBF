@@ -6,16 +6,16 @@ Its goal is simple:
 
 ➡ **You focus on your product logic.**
 
-1 No more manual image hacking
-2 No more fighting with cross‑compiler setups
-3 No more “copy this folder into rootfs and pray” workflows
+1 No more manual image hacking  
+2 No more fighting with cross‑compiler setups  
+3 No more “copy this folder into rootfs and pray” workflows  
 
 Instead:
 
-1 Build ARM binaries on ANY x86 Linux PC
-2 Package them into clean `.deb` files
-3 Auto‑inject them into a Raspberry Pi OS image
-4 Produce repeatable, version‑controlled firmware images
+1 Build ARM binaries on ANY x86 Linux PC  
+2 Package them into clean `.deb` files  
+3 Auto‑inject them into a Raspberry Pi OS image  
+4 Produce repeatable, version‑controlled firmware images  
 
 ---
 
