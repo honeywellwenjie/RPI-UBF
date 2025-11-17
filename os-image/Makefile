@@ -5,8 +5,10 @@ all: .image.sentinel
 CACHE_DIR = cache
 IMG_SCRIPT = image-script
 IMG_NAME = 2025-10-01-raspios-trixie-armhf-lite.img
+OUTPUT_FOLDER = ./../output
+OUTPUT_IMG = rpi-build.img
 
-.image.sentinel: .download.sentinel .rootfs.sentinel .package.sentinel
+.image.sentinel: .download.sentinel .rootfs.sentinel .build.sentinel .pack.sentinel
 	echo "building os-image"
 	touch $@
 
@@ -19,15 +21,22 @@ IMG_NAME = 2025-10-01-raspios-trixie-armhf-lite.img
 	sudo $(IMG_SCRIPT)/unpack_rootfs.sh $(CACHE_DIR)/$(IMG_NAME)
 	touch $@
 
-.package.sentinel: .rootfs.sentinel
+.build.sentinel: .rootfs.sentinel
 	touch $@
 
+.pack.sentinel: .build.sentinel
+	sudo $(IMG_SCRIPT)/pack_rootfs.sh $(CACHE_DIR)/$(IMG_NAME)
+	mkdir -p $(OUTPUT_FOLDER)
+	mv $(CACHE_DIR)/$(IMG_NAME) $(OUTPUT_FOLDER)/$(OUTPUT_IMG)
+	touch $@
 
 clean:
 	echo "os-image clean"
 	@sudo rm -rf rootfs
+	rm -rf $(OUTPUT_FOLDER)
 	rm -rf .image.sentinel
-	rm -rf .package.sentinel
+	rm -rf .build.sentinel
+	rm -rf .pack.sentinel
 	rm -rf .rootfs.sentinel
 
 fullclean:
