@@ -24,7 +24,7 @@ OUTPUT_IMG = rpi-build.img
 	touch $@
 
 .build.sentinel: .rootfs.sentinel
-	sudo $(IMG_SCRIPT)/chroot_exec.sh /build_rootfs.sh
+	sudo $(IMG_SCRIPT)/chroot_exec.sh $(ROOTFS_FOLDER) /build_rootfs.sh
 	sudo rm -rf $(ROOTFS_FOLDER)/build_rootfs.sh
 	touch $@
 
