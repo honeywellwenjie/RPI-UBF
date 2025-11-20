@@ -5,6 +5,7 @@ all: .image.sentinel
 CACHE_DIR = cache
 IMG_SCRIPT = image-script
 IMG_NAME = 2025-10-01-raspios-trixie-armhf-lite.img
+ROOTFS_FOLDER = rootfs
 OUTPUT_FOLDER = ./../output
 OUTPUT_IMG = rpi-build.img
 
@@ -19,10 +20,12 @@ OUTPUT_IMG = rpi-build.img
 .rootfs.sentinel: .download.sentinel
 	$(IMG_SCRIPT)/prepare_image.sh
 	sudo $(IMG_SCRIPT)/unpack_rootfs.sh $(CACHE_DIR)/$(IMG_NAME)
+	sudo cp $(IMG_SCRIPT)/build_rootfs.sh $(ROOTFS_FOLDER)/
 	touch $@
 
 .build.sentinel: .rootfs.sentinel
-	sudo $(IMG_SCRIPT)/chroot_exec.sh "touch /test_wenjie_ok"
+	sudo $(IMG_SCRIPT)/chroot_exec.sh /build_rootfs.sh
+	sudo rm -rf $(ROOTFS_FOLDER)/build_rootfs.sh
 	touch $@
 
 .pack.sentinel: .build.sentinel
