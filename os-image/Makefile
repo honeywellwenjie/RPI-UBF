@@ -7,6 +7,7 @@ IMG_SCRIPT = image-script
 IMG_NAME = 2025-10-01-raspios-trixie-armhf-lite.img
 ROOTFS_FOLDER = rootfs
 OUTPUT_FOLDER = ./../output
+DEBIAN_PKGS_FOLDER = ./../debian-packages/output_deb
 OUTPUT_IMG = rpi-build.img
 
 .image.sentinel: .download.sentinel .rootfs.sentinel .build.sentinel .pack.sentinel
@@ -21,11 +22,13 @@ OUTPUT_IMG = rpi-build.img
 	$(IMG_SCRIPT)/prepare_image.sh
 	sudo $(IMG_SCRIPT)/unpack_rootfs.sh $(CACHE_DIR)/$(IMG_NAME)
 	sudo cp $(IMG_SCRIPT)/build_rootfs.sh $(ROOTFS_FOLDER)/
+	sudo cp $(DEBIAN_PKGS_FOLDER)/*.deb $(ROOTFS_FOLDER)/
 	touch $@
 
 .build.sentinel: .rootfs.sentinel
 	sudo $(IMG_SCRIPT)/chroot_exec.sh $(ROOTFS_FOLDER) /build_rootfs.sh
 	sudo rm -rf $(ROOTFS_FOLDER)/build_rootfs.sh
+	sudo rm -rf $(ROOTFS_FOLDER)/*.deb
 	touch $@
 
 .pack.sentinel: .build.sentinel
